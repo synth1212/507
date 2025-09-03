@@ -1,0 +1,9 @@
+1_2 Intro to Database Practices
+Overview
+In this practice you will evaluate the data that needs to be captured to build a simple and efficient
+• Student Registration System
+• Library Management System
+Tasks
+1. ABC School District would like to create a student on-line information and registration system to capture student-related information. The system needs to be designed as an on-line process to allow all new students to register on-line. It should also allow existing students to update and review all information. Create a list of important data that would need to be captured and stored in the student registration database.
+
+2. XYZ community would like to create a library management system. The objective is for the database to handle all transactions for the library. The database needs to store all the data that is relevant to managing the books, managing customers, and the day-to-day activities of the library. Create a list of important data that would need to be captured and stored in the library management database.
