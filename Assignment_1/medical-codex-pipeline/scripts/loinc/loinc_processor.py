@@ -1,7 +1,7 @@
 import pandas as pd
 
 ## Inputs/Loinc.csv
-lonic = pd.read_csv('Assignment_1\medical-codex-pipeline\scripts\loinc\Loinc.csv')
+lonic = pd.read_csv('Assignment_1/medical-codex-pipeline/scripts/loinc/Loinc.csv')
 
 ### Info to describe 
 lonic.info()
@@ -13,7 +13,7 @@ lonic.STATUS.value_counts()
 lonic.iloc[0]
 
 #### Check potential column names that we think we want to keep: LOINC_NUM, DefinitionDescription
-lonic.LONIC_NUM
+lonic.LOINC_NUM
 lonic['LOINC_NUM']
 lonic.LONG_COMMON_NAME
 

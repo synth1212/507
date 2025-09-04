@@ -7,6 +7,7 @@ npi_file_path = ('Assignment_1/medical-codex-pipeline/scripts/npi/npidata_pfile_
 df = pl.read_csv(npi_file_path, n_rows=1000)
 df_panads = pd.read_csv(npi_file_path, nrows=1000, low_memory=False)
 
+print(df_panads)
 
 print(f"Successfully loaded {len(df)} records from NPI data")
 print(f"Columns: {df.columns}")
