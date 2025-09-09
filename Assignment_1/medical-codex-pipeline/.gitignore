@@ -1,12 +1,3 @@
-# data
-inputs/
-**/*.csv
-**/*.tsv
-**/*.txt
-
-# keep code
-!scripts/**/*.py
-
 # Raw data files (exclude from repo)
 input/
 *.txt
