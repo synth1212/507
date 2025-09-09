@@ -32,7 +32,9 @@ lonic_small = lonic_small.rename(columns={
 })
 
 
-file_output_path = '507/Assignment_1/medical-codex-pipeline/Outputs/loinc_small.csv'
+file_output_path = 'Assignment_1/medical-codex-pipeline/outputs/lonic_small.csv'
 
 lonic_small.to_csv(file_output_path)
+
+print(f"Output saved to {file_output_path}")
 
