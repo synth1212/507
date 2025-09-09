@@ -1,8 +1,8 @@
-# data
-scripts/
-.csv
-*.tsv
-*.txt
+# Ignore all CSVs inside scripts/ and its subfolders
+scripts/**/*.csv
+
+# But DO NOT ignore CSVs in outputs/
+!outputs/*.csv
 
 # keep code
 !scripts/**/*.py
