@@ -1,0 +1,8 @@
+polars 
+pandas 
+request
+scipy
+numpy
+matplotlib
+sqlalchemy
+sqlite3
