@@ -25,6 +25,7 @@ print("Creating synthetic healthcare dataset...")
 n = 1000  # Number of patients
 
 # Generate synthetic patient data
+## Using {} is a dictionary of key terms
 data = {
     'patient_id': range(1, n+1),
     'age': np.random.normal(65, 15, n).clip(18, 95).astype(int),
@@ -40,12 +41,18 @@ data = {
     'infection_acquired': np.random.choice([0, 1], n, p=[0.95, 0.05])
 }
 
+
 # Create DataFrame
 df = pd.DataFrame(data)
 
 # Introduce some missing values to simulate real data
+## Most time you'll work with missing data, you'll almost never get a full complete data list 
+### "df.index" = an object that represents the row labels of a pandas DataFrame; can be used to select, filter, and align rows; the 'where'
 missing_indices = np.random.choice(df.index, size=int(n*0.05), replace=False)
+## Line 51 means to list of row labels (numbers from 0..n-1), and you’re randomly picking 5% of them to use later to simulate missing data
 df.loc[missing_indices, 'total_charges'] = np.nan
+## Another example 
+df.loc[missing_indices, 'age'] = np.nan
 
 print(f"Dataset created with {len(df)} patient records")
 
@@ -58,6 +65,7 @@ print("DATA CLEANING AND OVERVIEW")
 print("=" * 60)
 
 # Basic dataset information
+## Helpful when running in terminal 
 print(f"Dataset shape: {df.shape}")
 print(f"Each row represents: Individual patient discharge record")
 
@@ -67,8 +75,9 @@ print(df.dtypes)
 
 # Check for missing values
 print("\nMissing values:")
-missing_counts = df.isnull().sum()
-missing_pct = (missing_counts / len(df)) * 100
+missing_counts = df.isnull().sum() ## "df.isnull()" = goes through every cell and tells you true/false ## Adding .sum() counts the total of missing data (=fasle)
+missing_pct = (missing_counts / len(df)) * 100 ## convert the count of missing data into percentages (out of 100) 
+## len(df) = How many rows does my DataFrame df have; in this case 1000 becasue their are 1000 rows in this dataset
 missing_summary = pd.DataFrame({
     'Missing_Count': missing_counts,
     'Missing_Percentage': missing_pct

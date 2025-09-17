@@ -14,16 +14,16 @@ patients_df = pd.read_csv('Assignment_2_DBS/patients.csv')
 
 patients_df.sample(10) # .sample() method to view random rows of data, keeps information unbiased
 
-patients_df.to_sql('patients_details', con=engine, if_exist='replace', index=False) ## con=engine connection strenth, if_exist=replace table if it already exists, index='False' prevents pandas from writing row indices into the table, index=True would write row indices into the table
+patients_df.to_sql('patients_details', con=engine, if_exists='replace', index=False) ## con=engine connection strenth, if_exist=replace table if it already exists, index='False' prevents pandas from writing row indices into the table, index=True would write row indices into the table
 
 #read the data from the database into a pandas Dataframe
-df = pd.read_sql('SELECT * FROM 'Assignment_2_DBS/patients.csv'', engine)
+df = pd.read_sql('SELECT * FROM "patients_details"', engine)
 
 # Example query to select all patients with anxiety disorder (ICD-10 code F41.9).
-query_anxiety = "SELECT * FROM 'Assignment_2_DBS/patients.csv' WHERE primary_icd10 = 'F41.9'"
+query_anxiety = "SELECT * FROM 'patients_details' WHERE primary_icd10 = 'F41.9'"
 results_df = pd.read_sql_query(query_anxiety, con=engine)
 # OR you can modify the query as needed with this cmd.
-query_x = "SELECT * FROM 'Assignment_2_DBS/patients.csv' WHERE primary_icd10 = 'F41.9'"
+query_x = "SELECT * FROM 'patients_details' WHERE primary_icd10 = 'F41.9'"
 result_c_df = pd.read_sql_query(query_x, con=engine)
 
 
