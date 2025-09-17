@@ -2,7 +2,7 @@ import pandas as pd
 from sqlalchemy import create_engine 
 
 ## Load in .sql file as string
-with open('.\Module2_DBS\patient_query.sql', 'r') as file:
+with open('.\Assignment_2_DBS\patient_query.sql', 'r') as file:
 sql_depression_query = file.read()
 
 db_location = 'example.db'

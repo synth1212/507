@@ -3,5 +3,7 @@ __pycache__/
 *.pyc
 .ipynb_checkpoints/
 
-# For Module 2 
+## For Module 2 
 .DS_store 
+# Ignore the sqlite db
+example.db
