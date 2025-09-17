@@ -1,8 +1,9 @@
 polars 
 pandas 
-request
+requests
 scipy
 numpy
 matplotlib
 sqlalchemy
-sqlite3
+seaborn
+
