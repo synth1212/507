@@ -88,6 +88,7 @@ print(missing_summary[missing_summary['Missing_Count'] > 0])
 print("\nBasic descriptive statistics:")
 print(df.describe())
 
+
 # ============================================================================
 # STEP 3: FREQUENCY ANALYSIS
 # ============================================================================
@@ -99,26 +100,33 @@ print("=" * 60)
 # 3A. Categorical variable frequency analysis
 print("\n1. CATEGORICAL VARIABLES - Frequency Tables")
 
-# Gender frequency table - demonstrate all frequency types
+df['surgery_performed'].value_counts() ## Outputs 0/1 and it means if the surgery happened or didn't happen
+
+# Gender frequency table - demonstrate all frequency types (all shows counts in differnt ways)
 print("\nGender Distribution:")
-gender_freq = df['gender'].value_counts().sort_index()
+gender_freq = df['gender'].value_counts()
 gender_rel_freq = df['gender'].value_counts(normalize=True).sort_index()
 gender_cum_freq = gender_freq.cumsum()
 gender_rel_cum_freq = gender_rel_freq.cumsum()
 
 freq_table = pd.DataFrame({
-    'Absolute_Frequency': gender_freq,
+    'Absolute_Frequency': gender_freq, # Absolute and Relative frequency are the ones we would mostly use
     'Relative_Frequency': gender_rel_freq,
     'Cumulative_Frequency': gender_cum_freq,
     'Relative_Cumulative': gender_rel_cum_freq
 })
 print(freq_table)
+# Save as CSV
+freq_table.to_csv('gender_distribution.csv')
+
 
 # 3B. Cross-tabulation example
 print("\n2. CROSS-TABULATION (Pivot Tables)")
 crosstab = pd.crosstab(df['gender'], df['discharge_disposition'], margins=True)
 print("\nGender vs Discharge Disposition:")
 print(crosstab)
+## This type of data would call for a chi-square in terms of stats
+
 
 # Proportions in cross-tab
 print("\nProportions (row percentages):")
